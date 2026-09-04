@@ -1,0 +1,41 @@
+/* Estilização Geral */
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #333;
+}
+
+/* Imagens do Catálogo */
+.product-img {
+  max-height: 180px;
+  object-fit: contain;
+}
+
+.main-product-img {
+  max-height: 380px;
+  object-fit: contain;
+}
+
+/* Ajustes nos Cards */
+.card {
+  transition: transform 0.2s ease, shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+/* Cores Personalizadas */
+.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+}
+
+.btn-success {
+  background-color: #198754;
+  border: none;
+}
+
+.btn-success:hover {
+  background-color: #146c43;
+}
