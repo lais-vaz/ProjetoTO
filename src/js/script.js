@@ -37,6 +37,8 @@ const produtos = {
   }
 };
 
+let precoUnitarioBase = 0;
+
 document.addEventListener("DOMContentLoaded", () => {
   const titleElement = document.getElementById("prod-title");
 
@@ -47,7 +49,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (id && produtos[id]) {
       const prod = produtos[id];
       titleElement.innerText = prod.nome;
-      document.getElementById("prod-price").innerText = prod.preco;
+      
+      precoUnitarioBase = extrairPrecoNumerico(prod.preco);
+      
       document.getElementById("prod-desc").innerText = prod.descricao;
       
       const imgElement = document.getElementById("prod-img");
@@ -56,12 +60,41 @@ document.addEventListener("DOMContentLoaded", () => {
         imgElement.alt = prod.nome;
       }
 
+      atualizarPrecoTotal();
+
       document.title = `${prod.nome} - Sentidos Terapêuticos`;
     } else {
       window.location.href = "index.html";
     }
   }
 });
+
+function extrairPrecoNumerico(stringPreco) {
+  const limpo = stringPreco
+    .replace("R$", "")
+    .replace(/\./g, "")
+    .replace(",", ".")
+    .trim();
+  return parseFloat(limpo) || 0;
+}
+
+function formatarMoeda(valor) {
+  return valor.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+}
+
+function atualizarPrecoTotal() {
+  const input = document.getElementById("qtdInput");
+  const qtd = input ? parseInt(input.value) || 1 : 1;
+  const total = precoUnitarioBase * qtd;
+
+  const priceElement = document.getElementById("prod-price");
+  if (priceElement) {
+    priceElement.innerText = formatarMoeda(total);
+  }
+}
 
 function alterarQtd(valor) {
   const input = document.getElementById("qtdInput");
@@ -71,4 +104,6 @@ function alterarQtd(valor) {
   atual += valor;
   if (atual < 1) atual = 1;
   input.value = atual;
+
+  atualizarPrecoTotal();
 }
