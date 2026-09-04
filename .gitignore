@@ -1,0 +1,34 @@
+# Dependências do Node (NPM)
+node_modules/
+/.pnp
+.pnp.js
+
+# Arquivos de log de erros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Arquivos do sistema operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Configurações do editor de código (VS Code, WebStorm, etc)
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Pastas de compilação/build (caso use no futuro)
+dist/
+build/
+.cache/
