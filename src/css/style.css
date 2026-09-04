@@ -2,6 +2,7 @@
 body {
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: #333;
+  background-color: #eaf7f1;
 }
 
 /* Imagens do Catálogo */
@@ -27,7 +28,7 @@ body {
 
 /* Cores Personalizadas */
 .btn-primary {
-  background-color: #0d6efd;
+  background-color: #198754;
   border: none;
 }
 
@@ -39,3 +40,4 @@ body {
 .btn-success:hover {
   background-color: #146c43;
 }
+
